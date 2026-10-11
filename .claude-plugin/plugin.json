@@ -4,7 +4,7 @@
   "description": "Mobile workflow for Claude Code: diff-first review with parallel reviewer agents, Flutter and iOS/Swift skills, and safety hooks. Project knowledge is discovered per project.",
   "author": {
     "name": "Michelle Conchina",
-    "email": "conchinamichelle@gmail.com"
+    "email": "conchina.michelle@gmail.com"
   },
   "keywords": ["mobile", "flutter", "ios", "swift", "review"]
 }
