@@ -55,8 +55,19 @@ cwd=$(physical "$cwd")
 
 # ---------- protected files ----------
 
-project_patterns() { # "Protected files" bullets from docs/tara-knowledge/project.md
-  pm="$project_dir/docs/tara-knowledge/project.md"
+knowledge_root() { # $1 = absolute path; nearest dir (up to project_dir) holding docs/tara-knowledge/project.md
+  d=${1%/*}
+  while :; do
+    [ -f "$d/docs/tara-knowledge/project.md" ] && { echo "$d"; return 0; }
+    case "$d" in "$project_dir"|/|"") break ;; esac
+    d=${d%/*}
+    [ -n "$d" ] || d=/
+  done
+  echo "$project_dir"
+}
+
+project_patterns() { # $1 = app root; "Protected files" bullets from its project.md
+  pm="$1/docs/tara-knowledge/project.md"
   [ -f "$pm" ] || return 0
   awk '
     /^#+[[:space:]]+Protected files/ { on = 1; next }
@@ -79,9 +90,11 @@ protected_reason() { # $1 = path; prints reason if protected
       echo "$base is a protected file (signing, secrets, or service config)"
       return 0 ;;
   esac
-  rel=${p#"$project_dir"/}
+  p=$(normalize "$p")
+  kr=$(knowledge_root "$p")
+  rel=${p#"$kr"/}   # patterns in project.md are relative to the app root that holds it
   set -f  # patterns may contain globs; don't expand them against cwd
-  for pat in $(project_patterns); do
+  for pat in $(project_patterns "$kr"); do
     case "$pat" in */) pat="${pat}*" ;; esac
     # shellcheck disable=SC2254
     case "$rel" in $pat) echo "$rel matches Protected files in project.md ($pat)"; return 0 ;; esac

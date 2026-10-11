@@ -16,10 +16,7 @@ The orchestrator gives you: the project root, the stack, and the files in scope 
 ## Steps
 
 1. Read `docs/tara-knowledge/project.md` and `docs/tara-knowledge/learnings.md` under the project root if they exist. The state library, architecture, and folder layout they declare are the standard you review against. Without them, infer the pattern from neighboring code and review for consistency with it.
-2. Load the checklists for the stack. Read only what applies:
-   - flutter: `${CLAUDE_PLUGIN_ROOT}/skills/flutter/SKILL.md` and `${CLAUDE_PLUGIN_ROOT}/skills/flutter/state.md`
-   - ios, or any `.swift` file: `${CLAUDE_PLUGIN_ROOT}/skills/ios-swift/SKILL.md`, plus `swiftui.md` (state ownership) or `uikit.md` and `concurrency.md` from the same folder as relevant
-   - other stacks: no tara skill yet; use the generic focus list below
+2. Load the checklist for the stack from `${CLAUDE_PLUGIN_ROOT}/skills/`: flutter → `flutter/`, ios → `ios-swift/`, android → `android-kotlin/`, react-native/expo → `react-native/`, kmp → `kmp/` (plus `android-kotlin/` and `ios-swift/` for platform source sets). Native code inside a cross-platform app (`.swift`, `.kt`) also uses that platform's skill. Read each `SKILL.md`, then only these detail files for your focus: flutter `state.md` · ios-swift `swiftui.md` (state ownership) or `uikit.md`, and `concurrency.md` · android-kotlin `coroutines.md`, `compose.md` (state hoisting).
 3. Review the changed lines, reading related files (the bloc/view model a widget uses, the repository it calls) as needed. Report pre-existing code only if the change makes it worse or it is a P1 in the same function.
 
 ## Focus

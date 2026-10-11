@@ -16,10 +16,7 @@ The orchestrator gives you: the project root, the stack, and the files in scope 
 ## Steps
 
 1. Read `docs/tara-knowledge/project.md` and `docs/tara-knowledge/learnings.md` under the project root if they exist. Treat their conventions as correct.
-2. Load the checklists for the stack. Read only what applies:
-   - flutter: `${CLAUDE_PLUGIN_ROOT}/skills/flutter/SKILL.md`
-   - ios, or any `.swift` file: `${CLAUDE_PLUGIN_ROOT}/skills/ios-swift/SKILL.md`
-   - other stacks: no tara skill yet; use the generic focus list below
+2. Load the checklist for the stack from `${CLAUDE_PLUGIN_ROOT}/skills/`: flutter → `flutter/`, ios → `ios-swift/`, android → `android-kotlin/`, react-native/expo → `react-native/`, kmp → `kmp/` (plus `android-kotlin/` and `ios-swift/` for platform source sets). Native code inside a cross-platform app (`.swift`, `.kt`) also uses that platform's skill. Read each `SKILL.md`, then only these detail files for your focus: none beyond `SKILL.md` (its core rules and P1 checklist cover security).
 3. Review the changed lines, reading surrounding code to trace where data comes from and goes. Also check config files in scope. Report pre-existing code only if the change makes it worse or it is a P1 in the same function.
 
 ## Focus

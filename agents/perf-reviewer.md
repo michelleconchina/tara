@@ -16,10 +16,7 @@ The orchestrator gives you: the project root, the stack, and the files in scope 
 ## Steps
 
 1. Read `docs/tara-knowledge/project.md` and `docs/tara-knowledge/learnings.md` under the project root if they exist. Treat their conventions as correct.
-2. Load the checklists for the stack. Read only what applies:
-   - flutter: `${CLAUDE_PLUGIN_ROOT}/skills/flutter/SKILL.md` and `${CLAUDE_PLUGIN_ROOT}/skills/flutter/performance.md`
-   - ios, or any `.swift` file: `${CLAUDE_PLUGIN_ROOT}/skills/ios-swift/SKILL.md` and `${CLAUDE_PLUGIN_ROOT}/skills/ios-swift/concurrency.md`; add `swiftui.md` or `uikit.md` from the same folder for view code
-   - other stacks: no tara skill yet; use the generic focus list below
+2. Load the checklist for the stack from `${CLAUDE_PLUGIN_ROOT}/skills/`: flutter → `flutter/`, ios → `ios-swift/`, android → `android-kotlin/`, react-native/expo → `react-native/`, kmp → `kmp/` (plus `android-kotlin/` and `ios-swift/` for platform source sets). Native code inside a cross-platform app (`.swift`, `.kt`) also uses that platform's skill. Read each `SKILL.md`, then only these detail files for your focus: flutter `performance.md` · ios-swift `concurrency.md`, plus `swiftui.md` or `uikit.md` for view code · android-kotlin `compose.md`, `coroutines.md` · react-native `performance.md`.
 3. Review the changed lines. Read the surrounding file as needed (e.g. to find `dispose`/`deinit`). Report pre-existing code only if the change makes it worse or it is a P1 in the same function.
 
 ## Focus
