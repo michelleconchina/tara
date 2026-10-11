@@ -1,11 +1,15 @@
 {
   "name": "tara",
+  "displayName": "Tara: Mobile Workflow",
   "version": "0.9.0",
   "description": "Mobile workflow for Claude Code (Flutter, iOS, Android, React Native, KMP): init, plan, execute, test, review with parallel reviewer agents, build, pr, release, store checks, platform skills, and safety hooks. Project knowledge is discovered per project.",
   "author": {
     "name": "Michelle Conchina",
     "email": "conchina.michelle@gmail.com"
   },
+  "homepage": "https://github.com/michelleconchina/tara",
+  "repository": "https://github.com/michelleconchina/tara",
+  "license": "MIT",
   "keywords": [
     "mobile",
     "flutter",

@@ -1,0 +1,19 @@
+{
+  "name": "tara",
+  "owner": {
+    "name": "Michelle Conchina",
+    "email": "conchina.michelle@gmail.com",
+    "url": "https://github.com/michelleconchina"
+  },
+  "description": "Mobile app workflow plugins for Claude Code",
+  "plugins": [
+    {
+      "name": "tara",
+      "source": ".",
+      "displayName": "Tara: Mobile Workflow",
+      "description": "Flutter, iOS, Android, React Native and KMP workflow for Claude Code: init, plan, execute, test, review with parallel reviewer agents, build, pr, release, store checks, platform skills, and safety hooks.",
+      "category": "development",
+      "tags": ["mobile", "flutter", "ios", "android", "react-native", "kmp", "code-review"]
+    }
+  ]
+}

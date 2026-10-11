@@ -6,9 +6,28 @@ The full design is in [SPEC.md](SPEC.md). Changes and deviations from the spec a
 
 ## Install
 
+In Claude Code (2.1.275 or later):
+
+```
+/plugin install tara --marketplace michelleconchina/tara
+```
+
+Or in two steps, on any version:
+
+```
+/plugin marketplace add michelleconchina/tara
+/plugin install tara@tara
+```
+
+Updates arrive when the version in `plugin.json` changes; run `/plugin marketplace update tara` to fetch them. Then run `/tara:init` in your app's folder.
+
+**What runs automatically:** two hooks, both local-only. `format.sh` formats the file Claude just edited, and `guard.sh` blocks edits to signing/env files, `rm -rf` outside the project, force pushes, and commits with likely secrets. Nothing is sent anywhere.
+
+### Develop locally
+
 ```sh
-claude --plugin-dir /path/to/tara        # try it without installing
-claude plugin validate /path/to/tara     # check the manifest
+claude --plugin-dir /path/to/tara        # load a local checkout
+claude plugin validate /path/to/tara     # check plugin.json and marketplace.json
 ```
 
 Run `/reload-plugins` after changing plugin files.
@@ -99,3 +118,7 @@ Not set by the plugin. To pre-approve your stack's safe commands, add them to th
 
 - Testing and fixtures: [fixtures/README.md](fixtures/README.md). Keep fixture projects **outside** the plugin folder, because Claude Code protects files under a loaded plugin's directory.
 - The detector can be run by hand: `sh scripts/detect.sh <project> [--root <app>]`.
+
+## License
+
+[MIT](LICENSE)

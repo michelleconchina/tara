@@ -35,6 +35,10 @@ All roadmap phases are built and pass the fixture smoke tests. The version stays
 - `--quiet` wording is the same in every command: one result line only. Commands with approval gates still ask their questions.
 - `/tara:health` checks the JDK the build actually uses (`flutter doctor -v`, `JAVA_HOME`, Android Studio's JBR) instead of `java` on `PATH`, which gave a false warning.
 
+### Distribution
+- The repository is public and doubles as a marketplace (`.claude-plugin/marketplace.json`, plugin source `"."`). Install with `/plugin install tara --marketplace michelleconchina/tara`.
+- `displayName` "Tara: Mobile Workflow", plus `homepage`, `repository`, and `license` in `plugin.json`. MIT `LICENSE` added.
+
 ### Fixed (from /code-review)
 - **Monorepos:** commands now use the nearest `docs/tara-knowledge/project.md` from the current directory upward, and ask which app when they're run above several. `review` limits its scope to that app. The guard applies the Protected files of the app containing the edited file.
 - **`detect.sh` bugs:**
