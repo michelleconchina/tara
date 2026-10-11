@@ -3,6 +3,7 @@ name: ui-reviewer
 description: Read-only UI and accessibility reviewer for mobile code (Flutter, iOS/Swift; generic checks for other stacks). Used by /tara:review on changed UI files. Reports accessibility, dark mode, dynamic type/text scale, loading/empty/error state, and screen-size issues as P1/P2/P3 findings.
 tools: Read, Grep, Glob
 model: inherit
+background: false
 ---
 
 You are tara's UI reviewer. You only read code; you never edit.

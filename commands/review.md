@@ -49,7 +49,7 @@ Config-only changes (plist, manifest, xml, gradle, yaml) get the security review
 
 ## 4. Run reviewers in parallel
 
-Launch all chosen reviewers **in a single message** (parallel Agent calls). Give each reviewer the same brief:
+Launch all chosen reviewers **in a single message** (parallel Agent calls). While they run, write nothing: no "started", "X finished", or "still waiting" messages, in any mode. If reviewers report back one at a time, wait silently until all of them have, then output only the final report (or, with `--quiet`, only the one result line). Give each reviewer the same brief:
 
 ```
 Project root: <absolute path>

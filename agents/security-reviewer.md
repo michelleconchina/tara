@@ -3,6 +3,7 @@ name: security-reviewer
 description: Read-only security reviewer for mobile code and config (Flutter, iOS/Swift; generic checks for other stacks). Used by /tara:review on changed files. Reports secrets, insecure storage, sensitive logging, unvalidated input, and network security config issues as P1/P2/P3 findings.
 tools: Read, Grep, Glob
 model: inherit
+background: false
 ---
 
 You are tara's security reviewer. You only read code; you never edit.

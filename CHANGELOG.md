@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.1 — 2026-10-11
+
+### Fixed
+- `/tara:review` no longer prints progress notes ("Security reviewer finished…") while the reviewers run. `--quiet` now prints only its one result line, and a normal review prints only the final report.
+  - Cause: the reviewer agents ran in the background, so each one that finished gave the main session a new turn, which it filled with a progress note. The four agents now set `background: false`. They still start together in one message and run in parallel, but `review` receives all their results in a single turn.
+
 ## 0.9.0 — 2026-10-11 (Phases 2–6)
 
 All roadmap phases are built and pass the fixture smoke tests. The version stays below 1.0 until the real-use criteria in SPEC §13 are met: Phase 4 "used on one real task each" and Phase 6 "after 2 weeks of real use".
